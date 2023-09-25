@@ -22,8 +22,9 @@ class main_ui(QWidget):
         self.lineedit2 = QLineEdit()
         btn1 = QPushButton('핫키 설정')
 
-        label3 = QLabel('<b>[현재 마우스 좌표]<b>')
-        self.label4 = QLabel('x, y')
+        label3 = QLabel('<b>클릭 간격 : <b>')
+        self.lineedit3 = QLineEdit()
+        btn2 = QPushButton('간격 설정')
 
         layout.addLayout(layout2)
         layout2.addWidget(frame1)
@@ -40,11 +41,13 @@ class main_ui(QWidget):
         frame2.setLayout(frame2_layout1)
         frame2_layout1.addLayout(frame2_layout2)
         frame2_layout2.addWidget(label3)
-        frame2_layout2.addWidget(self.label4)
+        frame2_layout2.addWidget(self.lineedit3)
+        frame2_layout1.addWidget(btn2)
 
         self.setLayout(layout)
 
         btn1.clicked.connect(self.conn_hotkey_dialog)
+        btn2.clicked.connect(self.conn_click_speed_dialog)
 
         self.lineedit1.setReadOnly(True)
         self.lineedit2.setReadOnly(True)
@@ -57,3 +60,6 @@ class main_ui(QWidget):
     def on_data_submitted(self, start_key, end_key):
         self.lineedit1.setText(start_key)
         self.lineedit2.setText(end_key)
+
+    def conn_click_speed_dialog(self):
+        pass
